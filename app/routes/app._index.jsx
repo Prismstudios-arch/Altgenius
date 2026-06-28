@@ -21,7 +21,7 @@ import {
 } from "@shopify/polaris";
 import enTranslations from "@shopify/polaris/locales/en.json";
 import polarisStyles from "@shopify/polaris/build/esm/styles.css?url";
-import { authenticate, MONTHLY_PLAN } from "../shopify.server";
+import { authenticate } from "../shopify.server";
 
 // Load the Polaris stylesheet via a real <link> tag. This is reliable in both
 // dev and production / embedded contexts (a bare CSS side-effect import is not).
@@ -102,13 +102,9 @@ export const loader = async ({ request }) => {
   // instead of forcing an immediate redirect to Shopify's charge page.
   let hasActivePayment = billingBypass;
   if (!billingBypass) {
-    const check = await billing.check({
-      plans: [MONTHLY_PLAN],
-      // Set BILLING_TEST=true to recognize test subscriptions (dev stores).
-      // Leave unset in production so only real (live) charges count.
-      // eslint-disable-next-line no-undef
-      isTest: process.env.BILLING_TEST === "true",
-    });
+    // Managed Pricing: reads the merchant's hosted subscription (any active
+    // plan unlocks the app). Works in test mode on dev stores automatically.
+    const check = await billing.check();
     hasActivePayment = check.hasActivePayment;
   }
 

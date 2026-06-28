@@ -2,17 +2,17 @@ import "@shopify/shopify-app-react-router/adapters/node";
 import {
   ApiVersion,
   AppDistribution,
-  BillingInterval,
   shopifyApp,
 } from "@shopify/shopify-app-react-router/server";
 import { PrismaSessionStorage } from "@shopify/shopify-app-session-storage-prisma";
 import prisma from "./db.server";
 
 /**
- * Billing plan identifier for the single AltGenius subscription.
- * Referenced from loaders/actions that gate the app behind a subscription.
+ * The app's handle (the segment in admin.shopify.com/store/<store>/apps/<HANDLE>).
+ * Used to build the Managed Pricing plan-selection URL. Override with the
+ * SHOPIFY_APP_HANDLE env var if your handle differs.
  */
-export const MONTHLY_PLAN = "Monthly subscription";
+export const APP_HANDLE = process.env.SHOPIFY_APP_HANDLE || "altgenius-4";
 
 const shopify = shopifyApp({
   apiKey: process.env.SHOPIFY_API_KEY,
@@ -23,22 +23,12 @@ const shopify = shopifyApp({
   authPathPrefix: "/auth",
   sessionStorage: new PrismaSessionStorage(prisma),
   distribution: AppDistribution.AppStore,
-  billing: {
-    [MONTHLY_PLAN]: {
-      // 14-day free trial. With the Billing API the trial is declared here in
-      // code (NOT in shopify.app.toml — the TOML has no [billing] section).
-      trialDays: 14,
-      lineItems: [
-        {
-          amount: 4.99,
-          currencyCode: "USD",
-          interval: BillingInterval.Every30Days,
-        },
-      ],
-    },
-  },
+  // Managed Pricing: the plan, $4.99 price, and 14-day trial are configured in
+  // the Partner Dashboard, NOT in code. We don't call billing.request(); this
+  // flag lets billing.check() read the merchant's managed-pricing subscription.
   future: {
     expiringOfflineAccessTokens: true,
+    unstable_managedPricingSupport: true,
   },
   ...(process.env.SHOP_CUSTOM_DOMAIN
     ? { customShopDomains: [process.env.SHOP_CUSTOM_DOMAIN] }

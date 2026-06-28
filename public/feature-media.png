@@ -1,0 +1,48 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6D5BF8"/>
+      <stop offset="1" stop-color="#A24BF0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1480" cy="110" r="280" fill="#FFFFFF" opacity="0.06"/>
+  <circle cx="180" cy="840" r="220" fill="#FFFFFF" opacity="0.05"/>
+
+  <!-- Wordmark -->
+  <path d="M122 92 C122 116 122 116 146 116 C122 116 122 116 122 140 C122 116 122 116 98 116 C122 116 122 116 122 92 Z" fill="#FFD66B"/>
+  <text x="162" y="128" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="#FFFFFF">AltGenius AI</text>
+
+  <!-- Headline -->
+  <text x="112" y="320" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="800" fill="#FFFFFF">Alt text for every</text>
+  <text x="112" y="412" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="800" fill="#FFFFFF">product image</text>
+
+  <!-- Subtext -->
+  <text x="114" y="478" font-family="Arial, Helvetica, sans-serif" font-size="32" fill="#FFFFFF" opacity="0.92">AI writes SEO-optimized, accessible descriptions in one click.</text>
+
+  <!-- Checks -->
+  <text x="114" y="572" font-family="Arial, Helvetica, sans-serif" font-size="31"><tspan fill="#FFD66B" font-weight="700">✓</tspan><tspan fill="#FFFFFF" dx="16">One-click AI generation</tspan></text>
+  <text x="114" y="638" font-family="Arial, Helvetica, sans-serif" font-size="31"><tspan fill="#FFD66B" font-weight="700">✓</tspan><tspan fill="#FFFFFF" dx="16">Built for Google Image SEO</tspan></text>
+  <text x="114" y="704" font-family="Arial, Helvetica, sans-serif" font-size="31"><tspan fill="#FFD66B" font-weight="700">✓</tspan><tspan fill="#FFFFFF" dx="16">WCAG accessibility built in</tspan></text>
+
+  <!-- Mockup card -->
+  <rect x="1014" y="268" width="480" height="400" rx="36" fill="#000000" opacity="0.12"/>
+  <rect x="1006" y="252" width="480" height="400" rx="36" fill="#FFFFFF"/>
+
+  <!-- thumbnail -->
+  <rect x="1046" y="300" width="120" height="120" rx="24" fill="#6D5BF8"/>
+  <circle cx="1082" cy="338" r="13" fill="#FFFFFF"/>
+  <path d="M1058 398 L1098 352 L1118 374 L1143 344 L1160 398 Z" fill="#FFFFFF"/>
+
+  <!-- product text -->
+  <text x="1192" y="344" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#1A1A1A">Red Snowboard</text>
+  <text x="1192" y="388" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#6D7175">Red snowboard with wood core</text>
+
+  <!-- generated pill -->
+  <rect x="1046" y="478" width="330" height="60" rx="30" fill="#E3F1DF"/>
+  <text x="1074" y="517" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#0E7C3A">✓ Alt text generated</text>
+
+  <!-- sparkle on card -->
+  <path d="M1456 222 C1456 268 1456 268 1502 268 C1456 268 1456 268 1456 314 C1456 268 1456 268 1410 268 C1456 268 1456 268 1456 222 Z" fill="#FFD66B"/>
+</svg>
