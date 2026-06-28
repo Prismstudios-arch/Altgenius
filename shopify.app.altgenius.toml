@@ -29,4 +29,6 @@ api_version = "2026-07"
   compliance_topics = [ "customers/data_request", "customers/redact", "shop/redact" ]
 
 [build]
-automatically_update_urls_on_dev = true
+# Off so production keeps the Fly URL. Set true again if you go back to local
+# `shopify app dev` (which needs to point URLs at the dev tunnel).
+automatically_update_urls_on_dev = false
