@@ -104,8 +104,10 @@ export const loader = async ({ request }) => {
   if (!billingBypass) {
     const check = await billing.check({
       plans: [MONTHLY_PLAN],
+      // Set BILLING_TEST=true to recognize test subscriptions (dev stores).
+      // Leave unset in production so only real (live) charges count.
       // eslint-disable-next-line no-undef
-      isTest: process.env.NODE_ENV !== "production",
+      isTest: process.env.BILLING_TEST === "true",
     });
     hasActivePayment = check.hasActivePayment;
   }

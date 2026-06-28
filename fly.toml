@@ -1,0 +1,37 @@
+# fly.toml — AltGenius AI (Shopify app)
+# Minimal-cost config: one small machine, auto-sleep when idle, 1GB volume.
+app = "altgenius"
+primary_region = "lhr"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  NODE_ENV = "production"
+  PORT = "3000"
+  HOST = "0.0.0.0"
+  DATABASE_URL = "file:/data/prod.sqlite"
+  SCOPES = "read_products,write_products,write_files"
+  SHOPIFY_API_KEY = "7d3917da32413fc3e9eba31c46a02f39"
+  SHOPIFY_APP_URL = "https://altgenius.fly.dev"
+  GEMINI_MODEL = "gemini-2.5-flash"
+  # Recognize test subscriptions (your dev store). Remove for real merchants.
+  BILLING_TEST = "true"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+# Persistent disk so the SQLite session DB survives restarts.
+[mounts]
+  source = "altgenius_data"
+  destination = "/data"
+
+# Smallest (cheapest) machine.
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"

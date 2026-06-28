@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "7d3917da32413fc3e9eba31c46a02f39"
-application_url = "https://example.com"
+application_url = "https://altgenius.fly.dev"
 embedded = true
 name = "Altgenius"
 
@@ -10,7 +10,7 @@ name = "Altgenius"
 scopes = "read_products,write_products,write_files"
 
 [auth]
-redirect_urls = [ "https://example.com/api/auth" ]
+redirect_urls = [ "https://altgenius.fly.dev/auth/callback" ]
 
 [webhooks]
 api_version = "2026-07"

@@ -14,9 +14,10 @@ import { authenticate, MONTHLY_PLAN } from "../shopify.server";
 export const loader = async ({ request }) => {
   const { billing } = await authenticate.admin(request);
 
-  // isTest keeps the charge from hitting a real card while developing.
+  // BILLING_TEST=true uses test charges (dev stores / testing). Unset in
+  // production so real merchants are charged for real.
   // eslint-disable-next-line no-undef
-  const isTest = process.env.NODE_ENV !== "production";
+  const isTest = process.env.BILLING_TEST === "true";
 
   try {
     await billing.request({ plan: MONTHLY_PLAN, isTest });
