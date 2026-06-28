@@ -179,6 +179,15 @@ export const loader = async ({ request }) => {
   };
 };
 
+// Keep just-generated rows visible: don't auto-revalidate the loader after the
+// "Generate Alt Text" fetcher (POST) — that would re-filter the list and drop
+// the product you just fixed before you can see the result. The "Rescan
+// products" button (an explicit revalidation with no form) still refreshes.
+export function shouldRevalidate({ formMethod, defaultShouldRevalidate }) {
+  if (formMethod === "POST") return false;
+  return defaultShouldRevalidate;
+}
+
 /* -------------------------------------------------------------------------- */
 /*  Action: generate alt text with Gemini, then persist it on Shopify          */
 /*  (Unchanged — this is the working backend logic.)                           */
