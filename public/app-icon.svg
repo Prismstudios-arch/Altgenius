@@ -1,0 +1,19 @@
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6D5BF8"/>
+      <stop offset="1" stop-color="#A24BF0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1200" rx="270" fill="url(#bg)"/>
+  <!-- image frame -->
+  <rect x="300" y="345" width="600" height="455" rx="56" fill="none" stroke="#FFFFFF" stroke-width="48"/>
+  <!-- sun -->
+  <circle cx="455" cy="475" r="55" fill="#FFFFFF"/>
+  <!-- mountains -->
+  <path d="M345 752 L512 565 L612 660 L735 545 L858 752 Z" fill="#FFFFFF"/>
+  <!-- AI sparkle (large) -->
+  <path d="M895 278 C895 360 895 360 977 360 C895 360 895 360 895 442 C895 360 895 360 813 360 C895 360 895 360 895 278 Z" fill="#FFD66B"/>
+  <!-- AI sparkle (small) -->
+  <path d="M788 214 C788 252 788 252 826 252 C788 252 788 252 788 290 C788 252 788 252 750 252 C788 252 788 252 788 214 Z" fill="#FFD66B"/>
+</svg>

@@ -425,7 +425,7 @@ function Paywall() {
 
                   <InlineStack gap="100" blockAlign="baseline">
                     <Text as="span" variant="heading3xl" fontWeight="bold">
-                      $15
+                      $4.99
                     </Text>
                     <Text as="span" variant="headingMd" tone="subdued">
                       /month
@@ -451,7 +451,7 @@ function Paywall() {
                   </Box>
 
                   <Text as="span" variant="bodySm" tone="subdued">
-                    Free for 14 days, then $15/month. Cancel anytime — billed
+                    Free for 14 days, then $4.99/month. Cancel anytime — billed
                     securely through Shopify.
                   </Text>
                 </BlockStack>
